@@ -1,0 +1,646 @@
+@import url('https://fonts.cdnfonts.com/css/games');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    background-color: #1B2223;
+}
+
+
+
+/*------------Logo e inicio de sesion------------*/
+
+nav{
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    z-index: 3;
+    background-color: #3A4F50;
+    box-shadow: 0 0 35px black;
+}
+.izquierda,
+.derecha{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.izquierda img{
+    width: 9%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.izquierda h1{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-family: 'Games', sans-serif;
+                                                
+    color: #F4FEFD;
+}
+.derecha{
+    justify-content: flex-end;
+    font-size: 10px;
+    color: red;
+    font-family: 'Games', sans-serif;                                           
+    margin-right: 2%;
+    font-weight: bold;
+    text-shadow: 0 0 10px red;
+}
+#iniciarSesion{
+    width: 6%;
+    background-color: none;
+    z-index: 9;
+    border-radius: 50%;
+    margin-right: 2%;
+    border: none;
+    box-shadow: 0 0 10px white;
+}
+#iniciarSesion img{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+
+/*--------------menu lateral------------*/
+
+main{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #1B2223;
+}
+.barraLateral{
+    position: fixed;
+    top: 10%;
+    width: 6%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    background-color: #3A4F50;
+    box-shadow: 0 0 35px #000;
+}
+.barraLateral button{
+    height: 15%;
+    border: none;
+    outline: none;
+    background-color: #3A4F50;
+    box-shadow: 0 0 10px black;
+    font-family: 'Games', sans-serif;
+    color: #F4FEFD;
+}
+.barraLateral button h1{
+    font-size: 14px;
+}
+
+
+
+/*------------juegos carrusel y botones-----------*/
+
+.juegos{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 5%;
+    padding-left: 6%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.juegos #tituloPopular{
+    margin-top: 50px;
+    font-family: 'Games', sans-serif;
+    color: #F4FEFD;
+    font-size: 50px;
+}
+#carrusel{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: 70%;
+    box-shadow: inset rgb(0, 0, 0) 0px 0px 35px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#continuar{
+    border: none;
+    background-color: #0EF6CC;
+    color: #F4FEFD;
+    font-weight: bold;
+    height: 102.5%;
+    width: 8%;
+    box-shadow: inset rgb(0, 0, 0) 0px 0px 35px;
+    transition: 0.1s;
+    font-family: 'Games', sans-serif;
+}
+#continuar:active{
+    transform: translateY(5px);
+    cursor: default;
+}
+#detener{
+    font-family: 'Games', sans-serif;
+    border: none;
+    background-color: #0EF6CC;
+    color: #F4FEFD;
+    font-weight: bold;
+    height: 102.5%;
+    width: 8%;
+    box-shadow: inset rgb(0, 0, 0) 0px 0px 35px;
+    transition: 0.1s;
+}
+#detener:active{
+    transform: translateY(5px);
+    cursor: default;
+}
+#atras{
+    width: 5%;
+    height: 10%;
+}
+#adelante{
+    width: 5%;
+    height: 10%;
+}
+#juegoss{
+    width: 83.7%;
+    display: grid;
+    grid-auto-columns: 20%;
+    grid-gap: 50px;
+    grid-auto-flow: column;
+    overflow-x: hidden;
+    height: 100%;
+}
+.contenidos{
+    background-color: #3A4F50;
+    border-radius: 10px;
+    width: 110%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    animation-name: movimiento_carrusel;
+    animation-duration: 100s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    justify-content: space-around;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F4FEFD;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+}
+.contenidos img{
+    border-radius: 10px;
+}
+.cara{
+    width: 85%;
+    height: 70%;
+}
+@keyframes movimiento_carrusel {
+    0%{
+        transform: translateX(0) translateY(0);    
+    }
+    50%{
+        transform: translateX(-1910%) translateY(0);
+    }
+    100%{
+        transform: translateX(0) translateY(0);    
+    }
+}
+
+
+
+/*-------pop-up inicio sesion---------*/
+
+.modal-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.843);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 94%;
+    height: 90%; 
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+    font-family: 'Games', sans-serif;
+    color: #F4FEFD;
+}
+.modal-container h2{
+    font-size: 15px;
+}
+.modal-container .modal .inicioo{
+    display: flex;
+    margin-bottom: 100%;
+}
+.modal-container .modal .inicioo button{
+    margin-right: 10px;
+    border: none;
+    padding: 1% 6%;
+    border-radius: 10px;
+    background-color: #0EF6CC;
+    color: #F4FEFD;
+    font-weight: bold;
+    font-family: 'Games', sans-serif;
+    box-shadow: 0 0 10px #0EF6CC;
+}
+.modal-container .modal input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid #F4FEFD;
+}
+.modal-container .modal input:focus{
+    border-bottom: 1px solid #F4FEFD;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F4FEFD;
+    font-weight: bold;
+    font-size: 18px;
+}
+.modal-container .modal #inicioArriba button{
+    width: 8.5%;
+    border-radius: 50%;
+    font-family: 'Games', sans-serif;
+    border: none;
+    color: #F4FEFD;
+    background-color: #0EF6CC;
+    box-shadow: 0 0 10px #0EF6CC;
+}
+
+
+
+/*----------crear cuenta------------*/
+
+.modal-container2 {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.843);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 94%;
+    height: 90%; 
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+    font-family: 'Games', sans-serif;
+    color: #F4FEFD;
+}
+.modal-container2 h2{
+    font-size: 15px;
+}
+.modal2{
+    background-color: #1B2223;
+    width: 40%;
+    height: 50%;
+    border-radius: 15px;
+    padding: 2%;
+}
+.modal-container2 .modal2 .inicioo2 button{
+    margin-right: 10px;
+    border: none;
+    padding: 1% 6%;
+    border-radius: 10px;
+    background-color: #0EF6CC;
+    color: #F4FEFD;
+    font-weight: bold;
+    font-family: 'Games', sans-serif;
+    box-shadow: 0 0 10px #0EF6CC;
+}
+.modal-container2 .modal2 input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid #F4FEFD;
+}
+.modal-container2 .modal2 #inicioArriba button{
+    width: 8.5%;
+    border-radius: 50%;
+    font-family: 'Games', sans-serif;
+    border: none;
+    color: #F4FEFD;
+    background-color: #0EF6CC;
+    box-shadow: 0 0 10px #0EF6CC;
+}
+
+
+
+/*------------- ---------------*/
+
+.modal-container33 {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.843);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 94%;
+    height: 90%; 
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+}
+.modal3{
+    background-color: white;
+    width: 40%;
+    height: 50%;
+    border-radius: 15px;
+    padding: 2%;
+}
+.mostrar{
+    pointer-events: auto;
+    opacity: 1;
+}
+.modal{
+    background-color: #1B2223;
+    width: 40%;
+    height: 50%;
+    border-radius: 15px;
+    padding: 2%;
+}
+input{
+    margin-bottom: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 50%;
+}
+input:focus {
+    outline: none;
+}
+#inicioArriba{
+    display: flex;
+    justify-content: space-between;
+}
+#inicioArriba h1{
+    width: 80%;
+}
+#cerrarInicio{
+    width: 20%;
+    justify-content: flex-end;
+}
+#cerrar{
+    width: 20%;
+    justify-content: flex-end;
+}
+#andres{
+    width: 100%;
+    height: 90vh;
+}
+
+/*-------------botones filtro--------------*/
+
+.juegosFiltrados .filtros{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5%;
+}
+.juegosFiltrados .filtros .buscador{
+    margin: 10px 13px;
+}
+.juegosFiltrados .filtros .buscador button{
+    width: 100%;
+    padding: 2% 6%;
+    background-color: #0EF6CC;
+    color: #F4FEFD;
+    box-shadow: 0 0 10px #0EF6CC;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Games', sans-serif;
+}
+.juegosFiltrados .filtros .ho{
+    margin: 5% 5%;
+    display: flex;
+}
+.juegosFiltrados .filtros .botones button{
+    padding: 2% 6%;
+    border-radius: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0EF6CC;
+    color: #F4FEFD;
+    font-family: 'Games', sans-serif;
+    box-shadow: 0 0 10px #0EF6CC;
+}
+.juegosFiltrados .filtros .botones select{
+    padding: 2% 6%;
+    border-radius: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0EF6CC;
+    color: #F4FEFD;
+    font-family: 'Games', sans-serif;
+    box-shadow: 0 0 10px #0EF6CC;
+    outline: none;
+}
+
+
+
+/*------------Juegos filtros---------------*/
+
+.juegosFiltrados {
+    padding-left: 6%;
+    width: 100%;
+    position: relative;
+    background-color: #1B2223;
+    height: 100%;
+    overflow-y: auto;
+    align-items: space-around;
+}
+
+#juegosFil {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-auto-flow: row;
+    grid-gap: 30px 20px;
+    max-height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.juegosFiltrados #juegosFil .juego {
+    background-color: #3A4F50;
+    width: 195px;
+    height: 100%; /* Asegura que la altura sea el 100% del contenedor */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+.juegosFiltrados #juegosFil .juego img{
+    width: 170px;
+    height: 220px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.juegosFiltrados #juegosFil .juego h2{
+    margin-bottom: 10px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+
+/*------------juegos fil-------------*/
+
+#andres .juegosFiltrados .juegosFil .juego{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Games', sans-serif;
+    color: #F4FEFD;
+    margin-top: 10%;
+}
+#andres .juegosFiltrados .juegosFil .juego button{
+    width: 90%;
+    border-radius: 10px;
+    border: none;
+    padding: 3% 10%;
+    background-color: #0EF6CC;
+    color: #F4FEFD;
+    box-shadow: 0 0 10px #0EF6CC;
+    font-weight: bold;
+    font-family: 'Games', sans-serif;
+}
+
+
+
+/* Estilos del footer */
+footer{
+    background-color: #3A4F50;
+    color: #F4FEFD;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Games', sans-serif;
+    box-shadow: 0 0 35px black;
+}
+
+/* Estilos de las secciones */
+.seccion {
+    margin-bottom: 40px;
+}
+.seccion h1 {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.seccion h2 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Estilos de las redes sociales */
+.redes-sociales {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.redes-sociales a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.redes-sociales img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Estilos de la sección de contacto */
+.contactos {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.contactos a {
+    text-decoration: none;
+    color: #000;
+}
+.contactos img {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/*-----------pop-up descarga-----------*/
+
+.descargar{
+    position: fixed;
+    background-color: #1f2020;
+    width: 500px;
+    height: 300px;
+    z-index: 1;
+    top: 27%;
+    left: 31%;
+    border-radius: 10px;
+}
+.descargar .todo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.descargar .todo .progreso{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Games', sans-serif;
+    color: #F4FEFD;
+}
+.descargar .todo .progreso span{
+    font-family: 'Games', sans-serif;
+}
+.descargar .cerrar{
+    position: absolute;
+    top: 0;
+    right: 0; /* Cambiado de 1% a 0% */
+    font-family: 'Games', sans-serif;
+    cursor: pointer;
+    background-color: #0EF6CC;
+}
+.descargar .cerrar h1{
+    width: 1px;
+}
+.descargar .todo .acciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.descargar .todo .acciones button{
+    padding: 2% 5%;
+    color: #F4FEFD;
+    background-color: #0EF6CC;
+    box-shadow: 0 0 10px #0EF6CC;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Games', sans-serif;
+    margin: 5% 2%;
+}

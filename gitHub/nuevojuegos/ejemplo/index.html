@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ejemplo</title>
+</head>
+<body>
+    <h1>Registro de Empleado</h1>
+    <div id="registro">
+        <div id="nombree">
+            <h2>Nombre:</h2>
+            <input type="text" placeholder="Nombre..." id="nombre">
+        </div>
+        <div id="apellidoo">
+            <h2>Apellido:</h2>
+            <input type="text" placeholder="Apellido..." id="apellido">
+        </div>
+        <div id="fechaa">
+            <h2>Fecha de Nacimiento:</h2>
+            <input type="date" id="fecha_nac">
+        </div>
+        <div id="cargoo">
+            <h2>Cargo:</h2>
+            <input type="text" placeholder="Cargoo" id="cargo">
+        </div>
+        <button onclick="registrar()">Registrar empleado</button>
+        <button onclick="mostrarRegistros()">Mostrar empleados</button>
+    </div>
+    <script>
+        let empleados = []
+        
+        function empleado(nombre,apellido,fecha,cargo) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.fecha = fecha;
+            this.cargo = cargo;
+        }
+
+        function registrar() {
+            let nombre = document.getElementById("nombre").value;
+            let apellido = document.getElementById("apellido").value;
+            let fecha = document.getElementById("fecha_nac").value;
+            let cargo = document.getElementById("cargo").value;
+            let empledo = new empleado(nombre,apellido,fecha,cargo);
+            empleados.push(empledo);
+            console.log(empleados);
+            document.getElementById("nombre").value = "";
+            document.getElementById("apellido").value = "";
+            document.getElementById("fecha_nac").value = "";
+            document.getElementById("cargo").value = "";
+        }
+
+        function mostrarRegistros() {
+            let mensaje = ""
+            for (let sujeto in empleados) {
+                if (empleados.hasOwnProperty(sujeto)) {
+                    let empleado = empleados[sujeto];
+                    mensaje += `Nombre: ${empleado.nombre}\nApellido: ${empleado.apellido}\nFecha: ${empleado.fecha}\nCargo: ${empleado.cargo}\n----------------\n`;
+
+                }
+            } alert(mensaje);
+            empleados = [];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/games" rel="stylesheet">
+</head>
+<body onload="conteo()">
+    <nav>
+        <div class="izquierda">
+            <img src="/img/OIG-removebg-preview (1).png" alt="logo_freegames" id="logo">
+            <h1 id="cantidad"></h1>
+        </div>
+        <div class="derecha">
+            <button id="iniciarSesion"><img src="https://cdn.icon-icons.com/icons2/1369/PNG/512/-person_90382.png" alt="Iniciar sesion"></button>
+            <h1 id="estado">Desconectado</h1>
+        </div>
+    </nav>
+    <main>
+        <div class="barraLateral">
+            <button class="botoness"><h1>Inicio</h1></button>
+            <button class="botoness"><h1>Juegos</h1></button>
+            <button class="botoness"><h1>Sobre nosotros</h1></button>
+        </div>
+        <div class="juegos">
+            <div class="modal-container" id="modal_container">
+                <div class="modal">
+                    <div id="inicioArriba">
+                        <h1>Iniciar Sesion</h1>
+                        <button id="cerrarInicio"><h2>X</h2></button>
+                    </div>
+                    <br>
+                    <div class="datos">
+                        <label for="nombre"><h2>Nombre de usuario</h2></label>
+                        <input type="text" name="nombre" id="nombreUsuario" class="op">
+                        <label for="contraseña"><h2>Contraseña</h2></label>
+                        <input type="password" name="contraseña"  id="contraseña" class="op">
+                    </div>
+                    <br>
+                    <div class="inicioo">
+                        <button id="inicio">Iniciar Sesion</button>
+                        <button id="creador">Crea una aqui</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-container2" id="modal_container2">
+                <div class="modal2">
+                    <div id="inicioArriba">
+                        <h1>Crear cuenta</h1>
+                        <button id="cerrar">X</button>
+                    </div>
+                    <br>
+                    <div class="datos2">
+                        <label for="nombre_nuevo"><h2>Nuevo nombre de usuario</h2></label>
+                        <input type="text" name="nombre_nuevo" id="nombreUsuarioNuevo">
+                        <label for="contraseña_nueva"><h2>Nueva contraseña</h2></label>
+                        <input type="password" name="contraseña_nueva"  id="contraseñaNueva">
+                    </div>
+
+                    <br>
+                    <div class="inicioo2">
+                        <button id="crear">Crear cuenta</button>
+                    </div>
+                </div>
+            </div>
+            <p id="tituloPopular">JUEGOS POPULARES</p>
+            <div id="carrusel">
+                <button id="continuar">Continuar</button>
+                <div id="juegoss"></div>
+                <button id="detener">Detener</button>
+            </div>
+        </div>
+    </main>
+
+
+
+    <div id="andres">
+        <div class="juegosFiltrados">
+            <div class="filtros">
+                <div class="buscador">
+                    <button id="buscar"><h3>Borrar filtro</h3></button>
+                </div>
+                <div class="botones">
+                    <select name="" id="categorias" class="ho">
+                        <option value="" disabled selected><h2>Categoría</h2></option>
+                        <option value="aventura"><h3>Aventur</h3>a</option>
+                        <option value="mundoAbierto"><h3>Mundo Abierto</h3></option>
+                        <option value="indie"><h3>Indie</h3></option>
+                        <option value="cartas"><h3>Cartas</h3></option>
+                        <option value="plataforma"><h3>Plataforma</h3></option>
+                        <option value="supervivencia"><h3>Supervivencia</h3></option>
+                        <option value="estrategia"><h3>Estrategia</h3></option>
+                        <option value="musicales"><h3>Musicales</h3></option>
+                    </select>
+                    <select name="" id="edades" class="ho">
+                        <option value="" disabled selected>Edad</option>
+                        <option value="3">3</option>
+                        <option value="7">7</option>
+                        <option value="12">12</option>
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                    </select>
+                    <button id="filtrar" class="ho" onclick="Filtroos()">Filtrar</button>
+                </div>
+            </div>
+            <div class="juegosFil" id="juegosFil">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="seccion">
+                <h1>Redes Sociales</h1>
+                <div class="redes-sociales">
+                    <a href="#"><img src="/img/facebook.png" alt="Facebook"><h2>Facebook</h2></a>
+                    <a href="#"><img src="/img/gorjeo.png" alt="Twitter"><h2>Twitter</h2></a>
+                    <a href="#"><img src="/img/instagram.png" alt="Instagram"><h2>Instagram</h2></a>
+                    <a href="#"><img src="/img/linkedin.png" alt="LinkedIn"><h2>LinkedIn</h2></a>
+                </div>
+            </div>
+            <div class="seccion">
+                <h1>Contacto</h1>
+                <div class="contactos">
+                    <a href="#"><img src="/img/gmail.png" alt="Email"><h2>Email</h2></a>
+                    <a href="#"><img src="/img/llamada.png" alt="Teléfono"><h2>Telefono</h2></a>
+                    <a href="#"><img src="/img/marcador-de-posicion.png" alt="Dirección"><h2>Direccion</h2></a>
+                    <a href="#"><img src="/img/charla.png" alt="Chat"><h2>Chat</h2></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="descargar" id="contenidoDescarga" style="display: none;">
+        <div class="todo">
+            <div class="progreso">
+                <progress id="Barra" value="0" max="100"></progress>
+                <span id="Porcentaje"><h3>0%</h3></span>
+            </div>
+            <div class="acciones">
+                <button class="botonAccion" id="Descargar">Descargar</button>
+                <button id="Pausar">Pausar</button>
+                <button id="Cancelar">Cancelar</button>
+            </div>
+        </div>
+        <div class="cerrar" id="cerrar">
+            <h1 onclick="BotonCerrar()">X</h1>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
